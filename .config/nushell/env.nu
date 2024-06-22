@@ -1,3 +1,4 @@
+$env.EDITOR = nvim
 $env.PROMPT_INDICATOR_VI_INSERT = {|| "" }
 $env.PROMPT_INDICATOR_VI_NORMAL = {|| "" }
 $env.PROMPT_MULTILINE_INDICATOR = {|| "::: " } # If you want previously entered commands to have a different prompt from the usual one,

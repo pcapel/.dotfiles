@@ -2,7 +2,6 @@
 
 let _cmd = {|sub: list| ^git --git-dir $env.DOTFILES_GIT_DIR --work-tree $env.DOTFILES_WORKTREE ...$sub}
 
-
 # Dotfile managment
 #
 # The base dotf command can be used to see the status of the dotfiles that are
@@ -46,4 +45,9 @@ def "dotf commit" [] {
 def --wrapped "dotf rm" [...paths] {
     let paths = $paths | each {|path| $path | path expand }
     do $_cmd ["rm", "--cached", ...$paths]
+}
+
+# Push changes
+def "dotf push" [] {
+    do $_cmd ["push"]
 }
