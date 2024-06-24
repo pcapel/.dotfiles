@@ -52,7 +52,7 @@ end
 -- Reload all lua configuration modules
 function M.reload_modules()
 	local config_path = vim.fn.stdpath("config") .. "/lua/"
-	local lua_files = vim.fn.glob(config_path .. "**/*.lua", 0, 1)
+	local lua_files = vim.fn.glob(config_path .. "**/*.lua", false, 1)
 
 	for _, file in ipairs(lua_files) do
 		local module_name = string.gsub(file, ".*/(.*)/(.*).lua", "%1.%2")
@@ -61,14 +61,6 @@ function M.reload_modules()
 	end
 	vim.cmd([[source $MYVIMRC]])
 	vim.notify("Reloaded all config modules")
-end
-
--- Builds the path for the json schema catalog cache
----@return Path path
-local json_schemas_catalog_path = function()
-	local Path = require("plenary.path")
-	local base_path = Path:new(vim.fn.stdpath("data"))
-	return base_path:joinpath("json_schema_catalog.json")
 end
 
 -- Reloads the current Lua file

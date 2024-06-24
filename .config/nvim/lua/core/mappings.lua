@@ -88,10 +88,6 @@ vmap({ "<Leader>k", 'y :%s/<C-r>"//gc<Left><Left><Left>' })
 -- qq to record (built-in), Q to replay
 nmap({ "Q", "@q" })
 
--- Tab/shift-tab to indent/outdent in visual mode.
-vmap({ "<Tab>", ">gv" })
-vmap({ "<S-Tab>", "<gv" })
-
 -- Keep selection when indenting/outdenting.
 vmap({ ">", ">gv" })
 vmap({ "<", "<gv" })
@@ -133,6 +129,7 @@ nmap({ "<tab><tab>", "<c-^>", { desc = "Switch between alternate buffers" } })
 nmap({ "Y", "y$", { desc = "Yank to EOL" } })
 
 -- copy to system clipboard
+-- TODO: what solution can I come up with for ssh?
 nmap({ "gy", '"+y', { desc = "Yank to clipboard" } })
 vmap({ "gy", '"+y', { desc = "Yank to clipboard" } })
 

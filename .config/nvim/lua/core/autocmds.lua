@@ -2,12 +2,12 @@
 
 local augroup = require("core.utils").augroup
 
--- Remove spellchecking for certain files
 augroup("SetSpell", {
 	{
 		event = { "BufRead", "BufNewFile" },
 		pattern = { "*.csv", "*.tsv", "*.fasta", "*.fastq" },
 		command = "setlocal nospell",
+		desc = "Remove spellchecking for certain files",
 	},
 })
 
@@ -22,14 +22,6 @@ augroup("SetSpell", {
 		event = { "FileType" },
 		pattern = { "gitcommit" },
 		command = "setlocal spell",
-	},
-})
-
-augroup("Firenvim", {
-	{
-		event = { "BufEnter" },
-		pattern = { "github.com_*.txt" },
-		command = "set filetype=markdown",
 	},
 })
 
