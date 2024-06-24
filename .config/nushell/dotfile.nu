@@ -2,7 +2,7 @@
 
 let _cmd = {|sub: list| ^git --git-dir $env.DOTFILES_GIT_DIR --work-tree $env.DOTFILES_WORKTREE ...$sub}
 
-# Dotfile managment
+# Dotfile management
 #
 # The base dotf command can be used to see the status of the dotfiles that are
 # managed using a bare git repo. All of the commands herein rely on the
@@ -16,6 +16,13 @@ def dotf [] {
 # Basically an alias for `git status`
 def "dotf status" [] {
     do $_cmd ["status"]
+}
+
+# Show the current diff
+#
+# Basically an alias for `git diff`
+def "dotf diff" [] {
+    do $_cmd ["diff"]
 }
 
 # Add new dotfiles to bare repo

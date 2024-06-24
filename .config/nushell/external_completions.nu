@@ -2,6 +2,7 @@
 # 1. untracked changes to known files
 # 2. files within the home directory that are `.file`
 # 3. files that are within `$HOME/.config`
+
 export def fish_completer [spans: list<string>] {
     fish --command $'complete "--do-complete=($spans | str join " ")"'
     | $"value(char tab)description(char newline)" + $in
