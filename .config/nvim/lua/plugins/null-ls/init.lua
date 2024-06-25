@@ -9,7 +9,7 @@ end
 local M = {}
 
 M.setup = function()
-	local b = null_ls.builtins
+	local builtin = null_ls.builtins
 
 	lsp_format.setup({})
 
@@ -18,21 +18,21 @@ M.setup = function()
 			----------------------
 			--    Diagnostics   --
 			----------------------
-			b.diagnostics.actionlint,
-			b.diagnostics.ansiblelint,
-			b.diagnostics.codespell,
+			builtin.diagnostics.actionlint,
+			builtin.diagnostics.ansiblelint,
+			builtin.diagnostics.codespell,
 
-			b.diagnostics.yamllint,
-			b.diagnostics.zsh,
+			builtin.diagnostics.yamllint,
+			builtin.diagnostics.zsh,
 			require("plugins.null-ls.commitlint"),
 
 			----------------------
 			--    Formatters    --
 			----------------------
-			b.formatting.clang_format,
+			builtin.formatting.clang_format,
 
 			-- Doesn't work for heex files
-			b.formatting.mix.with({
+			builtin.formatting.mix.with({
 				extra_filetypes = { "eelixir", "heex" },
 				args = { "format", "-" },
 				extra_args = function(_params)
@@ -51,16 +51,16 @@ M.setup = function()
 					return extra_args
 				end,
 			}),
-			b.formatting.pg_format,
-			b.formatting.prettierd.with({
+			builtin.formatting.pg_format,
+			builtin.formatting.prettierd.with({
 				extra_filetypes = { "ruby" },
 				disabled_filetypes = { "markdown" },
 			}),
-			b.formatting.prettier.with({
+			builtin.formatting.prettier.with({
 				filetypes = { "markdown" },
 			}),
-			b.formatting.shfmt,
-			b.formatting.stylua,
+			builtin.formatting.shfmt,
+			builtin.formatting.stylua,
 		},
 		on_attach = function(client)
 			if client.supports_method("textDocument/formatting") then
