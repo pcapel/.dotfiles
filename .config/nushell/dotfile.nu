@@ -60,3 +60,8 @@ def --wrapped "dotf rm" [...paths] {
 def "dotf push" [] {
     do $_cmd ["push"]
 }
+
+# Rebase for dotfiles
+def --wrapped "dotf rebase" [...args] {
+  do $_cmd ["rebase", ...$args ]
+}
