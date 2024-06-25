@@ -44,6 +44,7 @@ M.setup = function()
 			"lua-language-server",
 			"prosemd-lsp",
 			"pyright",
+			"ruff-lsp",
 			"rust-analyzer",
 			"sqlls",
 			"tailwindcss-language-server",

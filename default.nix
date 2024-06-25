@@ -4,6 +4,9 @@ let
 in 
 pkgs.mkShellNoCC {
   packages = with pkgs; [
+    # something is erroring with no tmux present, I just want it gone
+    # TODO: figure out what needs tmux...
+    tmux
     # Because of course we need a vcs
     git
     # Makes life a little more scriptable
