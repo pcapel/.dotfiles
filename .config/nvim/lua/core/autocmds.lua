@@ -7,7 +7,7 @@ augroup("SetSpell", {
 		event = { "BufRead", "BufNewFile" },
 		pattern = { "*.csv", "*.tsv", "*.fasta", "*.fastq" },
 		command = "setlocal nospell",
-		desc = "Remove spellchecking for certain files",
+		description = "Remove spellchecking for certain files",
 	},
 })
 

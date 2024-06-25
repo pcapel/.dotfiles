@@ -121,13 +121,13 @@ end
 -- this needs to be called something other than Autocmd to avoid conflict with
 -- the built-in type
 ---@class MyAutocmd
----@field desc string
+---@field description? string
 ---@field event  string[] list of autocommand events
 ---@field pattern string[] list of autocommand patterns
 ---@field command string | function
----@field nested  boolean
----@field once    boolean
----@field buffer  number
+---@field nested?  boolean
+---@field once?    boolean
+---@field buffer?  number
 
 --- Validate the keys passed to as.augroup are valid
 ---@param name string
@@ -169,7 +169,7 @@ function M.augroup(name, commands)
 		vim.api.nvim_create_autocmd(autocmd.event, {
 			group = id,
 			pattern = autocmd.pattern,
-			desc = autocmd.desc,
+			desc = autocmd.description,
 			callback = callback,
 			command = command --[[@as string]],
 			once = autocmd.once,
