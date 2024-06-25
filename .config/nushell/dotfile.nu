@@ -30,13 +30,15 @@ def "dotf diff" [] {
 # Using a list, you can add specific files, which is useful if you want to do
 # some munging. Otherwise, you may just want to add all the changes that you've
 # made to already tracked files.
-def "dotf add" [paths?: list<path>, --all (-a)] {
-    if (($paths == null) and not $all) {
+def "dotf add" [paths?: list<path>, --all (-a), --patch (-p)] {
+    if (not $patch and $paths == null and not $all) {
         null
     } else if ($all) {
         # TODO: better error when there's no modified
         let paths = do $_cmd ["ls-files", "--modified", $env.DOTFILES_WORKTREE] | split row "\n"
         do $_cmd ["add", ...$paths]
+    } else if ($patch) {
+        do $_cmd ["add", "--patch"]
     } else {
         let paths = $paths | each {|path| $path | path expand }
         do $_cmd ["add", ...$paths]
