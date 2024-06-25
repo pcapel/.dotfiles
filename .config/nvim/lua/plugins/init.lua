@@ -10,6 +10,9 @@ require("lazy").setup({
 			"ThePrimeagen/harpoon",
 		},
 		keys = core_mappings.portal_mappings(),
+		opts = {
+			labels = { "a", "s", "d", "f", "g", "h", "k", "l" },
+		},
 	},
 	-- DAP help for working with Nvim's lua
 	{ "jbyuki/one-small-step-for-vimkind" },

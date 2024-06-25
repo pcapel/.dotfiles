@@ -473,4 +473,10 @@ M.portal_mappings = function()
 	nmap({ "<leader>n", ":Portal jumplist forward<CR>", { desc = "Portals forwards" } })
 end
 
+nmap({
+	"<leader>rd",
+	":lua require'core.remote_dap'.attach_python_debugger('remote host')<CR>",
+	{ desc = "[R]remote [D]ebugger" },
+})
+
 return M
