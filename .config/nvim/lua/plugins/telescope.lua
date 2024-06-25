@@ -149,9 +149,21 @@ end
 
 M.setup = function()
 	local telescope = require("telescope")
+	local actions = require("telescope.actions")
+	local new_defaults = vim.tbl_extend("error", default.defaults, {
+		mappings = {
+			i = {
+				["<esc>"] = actions.close,
+				["<C-u>"] = false,
+				-- TODO: Doesn't work, but I want it to...
+				-- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#mapping-c-d-to-delete-buffer
+				-- ["<c-d>"] = actions.delete_buffer + actions.move_to_top,
+			},
+		},
+	})
 
 	---@diagnostic disable-next-line: redundant-parameter
-	telescope.setup(default)
+	telescope.setup(vim.tbl_extend("force", default, { defaults = new_defaults }))
 
 	local extensions = {
 		"gh",
