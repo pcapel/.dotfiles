@@ -1,6 +1,18 @@
 local core_mappings = require("core.mappings")
 
 require("lazy").setup({
+	-- Jumplist portals
+	{
+		"cbochs/portal.nvim",
+		-- Optional dependencies
+		dependencies = {
+			"cbochs/grapple.nvim",
+			"ThePrimeagen/harpoon",
+		},
+		keys = core_mappings.portal_mappings(),
+	},
+	-- DAP help for working with Nvim's lua
+	{ "jbyuki/one-small-step-for-vimkind" },
 	{
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
@@ -754,9 +766,11 @@ require("lazy").setup({
 					require("mason-nvim-dap").default_setup(config)
 				end,
 				python = function(config)
+					-- TODO: this will be a fun one. I'm thinking that this should
+					-- probably be some kind of dynamic reference to the nix store...
 					config.adapters = {
 						type = "executable",
-						command = "/Users/philip.capel/.local/share/nvim/mason/bin/debugpy-adapter",
+						command = "/home/Philip.Capel/.local/share/nvim/mason/bin/debugpy-adapter",
 						console = "internalConsole",
 					}
 					require("mason-nvim-dap").default_setup(config) -- don't forget this!

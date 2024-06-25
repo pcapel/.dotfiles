@@ -96,6 +96,7 @@ vmap({ "<", "<gv" })
 vmap({ "*", '"xy/<C-R>x<CR>' })
 
 -- DAP helpers
+nmap({ "<leader>dn", ":DapNew<CR>", { desc = "[D]ap [N]ew Session" } })
 nmap({ "<leader>du", ":lua require'dapui'.toggle()<CR>", { desc = "[D]ap [U]user Interface" } })
 nmap({ "<leader>dd", ":DapToggleBreakpoint<CR>", { desc = "Toggle Breakpoint" } })
 nmap({ "<leader>dc", ":DapContinue<CR>", { desc = "[D]ap [C]ontinue" } })
@@ -465,6 +466,11 @@ end
 M.notify_mappings = function()
 	local notify = require("notify")
 	nmap({ "<leader>nd", notify.dismiss, { desc = "[N]otification [D]ismiss" } })
+end
+
+M.portal_mappings = function()
+	nmap({ "<leader>o", ":Portal jumplist backward<CR>", { desc = "Portals backwards" } })
+	nmap({ "<leader>n", ":Portal jumplist forward<CR>", { desc = "Portals forwards" } })
 end
 
 return M
