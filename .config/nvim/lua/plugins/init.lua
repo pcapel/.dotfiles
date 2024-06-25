@@ -769,8 +769,8 @@ require("lazy").setup({
 					require("mason-nvim-dap").default_setup(config)
 				end,
 				python = function(config)
-					-- TODO: this will be a fun one. I'm thinking that this should
-					-- probably be some kind of dynamic reference to the nix store...
+					-- TODO: Local debugging should run a local debugpy, but that will
+					-- need to be sourced smartly, probably from nix store?
 					config.adapters = {
 						type = "executable",
 						command = "/home/Philip.Capel/.local/share/nvim/mason/bin/debugpy-adapter",
