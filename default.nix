@@ -37,5 +37,7 @@ pkgs.mkShellNoCC {
     zellij
     # spelling matters
     codespell
+    # find yo self
+    fd
     ];
 }
