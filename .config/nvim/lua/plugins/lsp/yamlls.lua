@@ -44,7 +44,7 @@ return {
 				-- disable and reset diagnostics for helm files (because the LS can't
 				-- read them properly)
 				if vim.bo[bufnr].buftype ~= "" or vim.bo[bufnr].filetype == "helm" then
-					vim.diagnostic.disable(bufnr)
+					vim.diagnostic.enable(false, bufnr)
 					vim.defer_fn(function()
 						vim.diagnostic.reset(nil, bufnr)
 					end, 1000)
