@@ -1,6 +1,7 @@
 local core_mappings = require("core.mappings")
 
 require("lazy").setup({
+	{ "LhKipp/nvim-nu", ft = "nu" },
 	-- Jumplist portals
 	{
 		"cbochs/portal.nvim",
