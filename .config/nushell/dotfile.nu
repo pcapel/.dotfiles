@@ -1,5 +1,3 @@
-# TODO: clean up the repetition here.
-
 let _cmd = {|sub: list| ^git --git-dir $env.DOTFILES_GIT_DIR --work-tree $env.DOTFILES_WORKTREE ...$sub}
 
 # Dotfile management
