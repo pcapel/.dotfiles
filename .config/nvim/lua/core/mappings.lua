@@ -247,7 +247,7 @@ M.todo_comments_mappings = {
   { "[t", function() require("todo-comments").jump_prev() end, desc = "Previous todo comment" },
   { "<leader>xt", "<cmd>TodoTrouble<cr>", desc = "Todo (Trouble)" },
   { "<leader>xT", "<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme (Trouble)" },
-  { "<leader>st", "<cmd>TodoTelescope<cr>", desc = "Todo" },
+  { "<leader>ft", "<cmd>TodoTelescope<cr>", desc = "[F]ind [T]odos" },
   { "<leader>sT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme" },
 }
 
