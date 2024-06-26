@@ -29,7 +29,7 @@ def "dotf diff" [] {
 #
 # Using a list, you can add specific files, which is useful if you want to do
 # some munging. Otherwise, you may just want to add all the changes that you've
-# made to already tracked files.
+# made to already tracked files. Paths should be given relative to `~`.
 def "dotf add" [paths?: list<path>, --all (-a), --patch (-p)] {
     if (not $patch and $paths == null and not $all) {
         null
@@ -40,7 +40,7 @@ def "dotf add" [paths?: list<path>, --all (-a), --patch (-p)] {
     } else if ($patch) {
         do $_cmd ["add", "--patch"]
     } else {
-        let paths = $paths | each {|path| $path | path expand }
+        let paths = $paths | each {|path| $"~/($path)" | path expand }
         do $_cmd ["add", ...$paths]
     }
 }

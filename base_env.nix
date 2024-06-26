@@ -1,9 +1,8 @@
 let
   nixpkgs = fetchTarball "https://github.com/NixOS/nixpkgs/tarball/nixos-unstable";
   pkgs = import nixpkgs { config = {}; overlays = []; };
-in 
-pkgs.mkShellNoCC {
-  packages = with pkgs; [
+in {
+  inherit (pkgs)
     # something is erroring with no tmux present, I just want it gone
     # TODO: figure out what needs tmux...
     tmux
@@ -11,8 +10,6 @@ pkgs.mkShellNoCC {
     git
     # Makes life a little more scriptable
     gh
-    # Allows me to install things with cargo until I can figure out how to manage vim deps with nix
-    rustup
     # Name a better editor that isn't emacs
     neovim
     # I'm digging it so far
@@ -39,5 +36,8 @@ pkgs.mkShellNoCC {
     codespell
     # find yo self
     fd
-    ];
+    # Language runtimes to allow installation using Mason until I sort out
+    # handling those things with nix or similar
+    rustup
+    nodejs;
 }
