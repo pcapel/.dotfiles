@@ -47,7 +47,7 @@ def "dotf add" [paths?: list<path>, --all (-a), --patch (-p)] {
 
 # Commit dotfiles
 def "dotf commit" [] {
-    do $_cmd ["commit", "-v"]
+    do $_cmd ["commit", "--verbose"]
 }
 
 # Remove a file
