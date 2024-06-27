@@ -791,4 +791,5 @@ $env.config = {
 
 source ($nu.default-config-dir | path join "aliases.nu")
 source ($nu.default-config-dir | path join "dotfile.nu")
+source ($nu.default-config-dir | path join "wtf.nu")
 source ~/.oh-my-posh.nu
