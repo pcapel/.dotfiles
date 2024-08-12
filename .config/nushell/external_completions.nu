@@ -22,14 +22,17 @@ export def external_completer [spans: list<string>] {
     | get -i expansion
 
     let tokens = if $expanded_alias != null  {
-      $spans | skip 1 | prepend ($expanded_alias | split row " " | take 1)
+        $spans | skip 1 | prepend ($expanded_alias | split row " " | take 1)
+    } else if $spans.0 == dots {
+        # TODO: this gets command completions, but it fails to get file
+        # completions...
+        $spans | skip 1 | prepend "git"
     } else {
         $spans
     }
 
     match $tokens.0 {
         nu => (fish_completer $tokens)
-        # TODO: figure out the best way to hook in the dotf commands
         git => (fish_completer $tokens)
         _ => (carapace_completer $tokens)
     }
