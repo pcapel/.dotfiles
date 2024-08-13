@@ -479,4 +479,10 @@ nmap({
 	{ desc = "[R]remote [D]ebugger" },
 })
 
+nmap({
+	"<leader>F",
+	":!ruff format %<CR>:!ruff check --fix %<CR>",
+	{ desc = "[F]ormat [F]ile" },
+})
+
 return M
