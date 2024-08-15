@@ -24,7 +24,6 @@ M.setup = function()
 	local package_list = {
 		-- Null LS
 		"actionlint",
-		"ansible-lint",
 
 		"codespell",
 		"prettierd",

@@ -20,7 +20,7 @@ M.setup = function()
 		ensure_installed = {
 			"arduino",
 			"bash",
-			"nu",
+			--"nu", appears to not exist?
 			"c",
 			"cmake",
 			"comment",

@@ -134,24 +134,25 @@ end
 local M = {}
 
 M.find_dotfiles = function()
-	local msg = "Using find_dotfiles is currently broken by the bare repo approach to management.\n"
-		.. "This will likely be fixed soon, but also, these are your dotfiles bro?\n"
-		.. "Just fix it, right?"
-	vim.notify(msg, vim.log.levels.ERROR)
-	-- TODO: Fix this
-	-- require("telescope.builtin").find_files({
-	-- 	shorten_path = false,
-	-- 	cwd = "~/",
-	-- 	search_dirs = {
-	-- 		".config/nvim",
-	-- 		".config/nushell",
-	-- 	},
-	-- 	prompt = "~ dotfiles ~",
-	-- 	layout_strategy = "horizontal",
-	-- 	layout_config = {
-	-- 		preview_width = 0.55,
-	-- 	},
-	-- })
+	require("telescope.builtin").find_files({
+		shorten_path = false,
+		cwd = "~",
+		find_command = {
+			"git",
+			"--git-dir=.dotfiles",
+			"--work-tree=~",
+			"ls-tree",
+			"-r",
+			"main",
+			"--name-only",
+		},
+		prompt_title = "~ dotfiles ~",
+		preview_title = "Files With Dots",
+		layout_strategy = "horizontal",
+		layout_config = {
+			preview_width = 0.55,
+		},
+	})
 end
 
 M.setup = function()

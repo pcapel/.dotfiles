@@ -2,7 +2,6 @@
 alias vim = nvim
 
 # Helpers for running more complex git nonsense
-# TODO: Consider how these might be altered into a set of functions
 let _current_branch = { git rev-parse --abbrev-ref HEAD }
 let _gap = { git add --patch }
 let _gref = { git --no-pager diff --cached --stat | command grep " |\\s*0$" | awk '{system("command git reset " $1)}' }
