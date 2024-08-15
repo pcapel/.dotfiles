@@ -1,7 +1,4 @@
-# TODO: dotf add <tab> should provide completions where files are ordered by
-# 1. untracked changes to known files
-# 2. files within the home directory that are `.file`
-# 3. files that are within `$HOME/.config`
+# TODO: dots completions are broken, some kind of span creation error.
 
 export def fish_completer [spans: list<string>] {
     fish --command $'complete "--do-complete=($spans | str join " ")"'
@@ -23,10 +20,6 @@ export def external_completer [spans: list<string>] {
 
     let tokens = if $expanded_alias != null  {
         $spans | skip 1 | prepend ($expanded_alias | split row " " | take 1)
-    } else if $spans.0 == dots {
-        # TODO: this gets command completions, but it fails to get file
-        # completions...
-        $spans | skip 1 | prepend "git"
     } else {
         $spans
     }
