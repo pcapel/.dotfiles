@@ -49,6 +49,10 @@ in {
     # spelling matters
     codespell
 
+    # beauty is in the eye of the beholder
+    prettierd
+   # TODO: add prettier
+
     # find yo self
     fd
 

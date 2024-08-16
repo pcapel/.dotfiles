@@ -44,7 +44,7 @@ M.setup = function()
 		"dockerfile-language-server",
 		"erlang-ls",
 		"eslint-lsp",
-		"helm-ls",
+		-- "helm-ls",
 		"html-lsp",
 		"json-lsp",
 		"lua-language-server",

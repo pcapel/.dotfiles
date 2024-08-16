@@ -12,6 +12,10 @@ pain, but I dunno. Maybe it should just be an alias?
 
 
 # TODO
+- [ ] Figure out why treesitter keeps installing plugins on startup
+- [ ] Sort out the `query.get_query` `query.get` deprecation
+- [ ] Sort out why mason keeps screaming at me about tools
+- [ ] Look into why indent blank line keeps having issues
 - [ ] Figure out how to get wezterm to install successfully
 - [ ] Inventory Neovim plugins
 - [ ] Sort out debugging story in Elixir
