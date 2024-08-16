@@ -1,4 +1,6 @@
 # TODO: dots completions are broken, some kind of span creation error.
+# It looks like  the span creation is an overflow, meaning that it's getting
+# some kind of negative value.
 
 export def fish_completer [spans: list<string>] {
     fish --command $'complete "--do-complete=($spans | str join " ")"'
@@ -17,6 +19,7 @@ export def external_completer [spans: list<string>] {
     | where name == $spans.0 
     | get -i 0
     | get -i expansion
+    print($expanded_alias)
 
     let tokens = if $expanded_alias != null  {
         $spans | skip 1 | prepend ($expanded_alias | split row " " | take 1)
